@@ -1,0 +1,27 @@
+complaint:
+    path: /complaint/{id}
+    controller: App\Controller\ComplaintController::Complaint
+
+complaint_list:
+    path: /complaint/list/{id}
+    controller: App\Controller\ComplaintController::listComplaints
+
+complaint_edit:
+    path: '/complaint/edit/{id}/{complaintId}'
+    controller: App\Controller\ComplaintController::editComplaint
+
+complaint_delete:
+    path: '/complaint/delete/{id}/{complaintId}'
+    controller: App\Controller\ComplaintController::deleteComplaint
+
+complaint_history:
+    path: '/complaint/history/{id}/{complaintId}'
+    controller: 'App\Controller\ComplaintController::showComplaintHistory'
+    
+admin_users_list:
+    path: /admin/users
+    controller: App\Controller\AdminUserController::index
+respond_to_complaint:
+    path: /admin/respond/{complaintId}
+    controller: App\Controller\AdminUserController::respondToComplaint
+    methods: [GET, POST]

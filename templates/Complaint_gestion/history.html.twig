@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint History</title>
+    <!-- Add your CSS stylesheets here -->
+</head>
+<body>
+    <h1>Complaint History</h1>
+    
+    <!-- Display the user information -->
+    <div>
+        <h2>User Information</h2>
+        <p>User ID: {{ user.id }}</p>
+        <!-- Add more user information if needed -->
+    </div>
+
+    <!-- Display the deleted complaint, if available -->
+    {% if deletedComplaint %}
+    <div>
+        <h2>Deleted Complaint</h2>
+        <p>Complaint ID: {{ deletedComplaint.id }}</p>
+        <!-- Display other details of the deleted complaint -->
+    </div>
+    {% endif %}
+
+    <!-- Display all historical complaints -->
+    <div>
+        <h2>Historical Complaints</h2>
+        <ul>
+            {% for complaint in historicalComplaints %}
+                <li>
+                    Complaint ID: {{ complaint.id }} - 
+                    Type: {{ complaint.type }} - 
+                    Description: {{ complaint.description }} - 
+                    Priority: {{ complaint.priority }} - 
+                    Date: {{ complaint.date|date('Y-m-d H:i:s') }} - 
+                    Status: {{ complaint.status }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Add your navigation links or buttons here -->
+</body>
+</html>
